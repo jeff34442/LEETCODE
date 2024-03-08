@@ -1,0 +1,33 @@
+Problem:
+Given an integer numRows, return the first numRows of Pascal's triangle.
+
+Example 1:
+
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+Example 2:
+
+Input: numRows = 1
+Output: [[1]]
+ 
+
+Solution:
+Base Cases:
+
+If numRows is 0, it returns an empty list [], since there are no rows to generate.
+If numRows is 1, it returns [[1]], which represents Pascal's Triangle with just the first row.
+Recursive Case:
+
+For numRows greater than 1, the function first calls itself with numRows - 1. This recursive call is made to generate the triangle up to the row just before the one we're currently trying to generate. This step builds the triangle from the top down to the second-to-last row that needs to be generated.
+After the recursive call, get_rows holds the generated triangle up to numRows - 1.
+Generating the Current Row:
+
+The previous_row is retrieved as the last row of get_rows, which was generated in the recursive step.
+A new current_row is started with [1] at the beginning because every row in Pascal's Triangle starts with 1.
+A loop iterates from 1 to numRows - 1 (exclusive) to fill the current_row. For each position i in the current_row, the sum of previous_row[i-1] and previous_row[i] is appended. This operation is based on the property of Pascal's Triangle where each element is the sum of the two directly above it.
+After exiting the loop, 1 is appended to current_row because every row in Pascal's Triangle ends with 1.
+This newly generated current_row is then appended to get_rows, which contains the rows generated in the recursive step.
+Returning the Result:
+
+Finally, get_rows, which now includes all rows up to numRows, is returned as the result.
+This recursive approach effectively builds Pascal's Triangle row by row. The recursion goes down to the base case, building the triangle as it unwinds back up, adding one row at a time using the properties of Pascal's Triangle.
