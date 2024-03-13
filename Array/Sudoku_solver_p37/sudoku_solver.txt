@@ -1,0 +1,14 @@
+
+Problem:
+Write a program to solve a Sudoku puzzle by filling the empty cells.
+
+A sudoku solution must satisfy all of the following rules:
+
+Each of the digits 1-9 must occur exactly once in each row.
+Each of the digits 1-9 must occur exactly once in each column.
+Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
+The '.' character indicates empty cells.
+
+Solution:
+For this problem I wrote a isValid function that checks whether or not a number is valid at the given row and col index. 
+In our solve function, we recursively iterate through the 2d array and check whether or not a number between 1-9 is valid. If it is, assign the value. If not keep the value at "."
